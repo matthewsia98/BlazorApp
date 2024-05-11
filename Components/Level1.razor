@@ -1,0 +1,8 @@
+﻿<div style="border: 0.2em solid red; margin: 1em;">
+    <p>Level 1: @Message</p>
+    <Level2 />
+</div>
+
+@code {
+    [CascadingParameter] public string Message { get; set; }
+}

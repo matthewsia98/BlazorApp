@@ -1,22 +1,18 @@
 ﻿@implements IDisposable
 
-@if (string.IsNullOrEmpty(AppState.Message))
-{
-    <p>You have not set a message yet</p>
-}
-else
-{
-    <p>@AppState.Message</p>
-}
+<CascadingValue Value=@AppState.Message>
+    @ChildContent
+</CascadingValue>
 
 @code {
     [Inject] AppState AppState { get; set; }
+    [Parameter] public RenderFragment ChildContent { get; set; }
 
     protected override void OnInitialized()
     {
         AppState.OnMessageChanged += StateHasChanged;
     }
-    
+
     public void Dispose()
     {
         AppState.OnMessageChanged -= StateHasChanged;

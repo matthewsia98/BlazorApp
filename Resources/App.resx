@@ -126,13 +126,4 @@
   <data name="My Blazor App" xml:space="preserve">
     <value>My Blazor App</value>
   </data>
-  <data name="Set Message" xml:space="preserve">
-    <value>Set Message</value>
-  </data>
-  <data name="Write your message here" xml:space="preserve">
-    <value>Write your message here</value>
-  </data>
-  <data name="You have not set a message yet" xml:space="preserve">
-    <value>You have not set a message yet</value>
-  </data>
 </root>

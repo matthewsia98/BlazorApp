@@ -1,8 +1,10 @@
 ﻿<form @onsubmit=SetMessage>
     <fieldset>
-        <legend>@Localizer["Set Message"]</legend>
-        <textarea @bind=message rows=8 placeholder=@Localizer["Write your message here"] />
-        <button type="submit" style="margin-top: 1em;">@Localizer["Set Message"]</button>
+        <legend>Set Message</legend>
+        <div>
+            <textarea @bind=message rows=8 placeholder="Write your message here" />
+            <button type="submit" style="margin-top: 1em;">Set Message</button>
+        </div>
     </fieldset>
 </form>
 
