@@ -1,0 +1,18 @@
+﻿<form @onsubmit=SetMessage>
+    <fieldset>
+        <legend>@Localizer["Set Message"]</legend>
+        <textarea @bind=message rows=8 placeholder=@Localizer["Write your message here"] />
+        <button type="submit" style="margin-top: 1em;">@Localizer["Set Message"]</button>
+    </fieldset>
+</form>
+
+@code {
+    [Inject] AppState AppState { get; set; }
+
+    private string message;
+
+    private void SetMessage()
+    {
+        AppState.SetMessage(message);
+    }
+}

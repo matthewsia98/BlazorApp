@@ -1,0 +1,24 @@
+﻿@implements IDisposable
+
+@if (string.IsNullOrEmpty(AppState.Message))
+{
+    <p>@Localizer["You have not set a message yet"]</p>
+}
+else
+{
+    <p>@AppState.Message</p>
+}
+
+@code {
+    [Inject] AppState AppState { get; set; }
+
+    protected override void OnInitialized()
+    {
+        AppState.OnMessageChanged += StateHasChanged;
+    }
+    
+    public void Dispose()
+    {
+        AppState.OnMessageChanged -= StateHasChanged;
+    }
+}

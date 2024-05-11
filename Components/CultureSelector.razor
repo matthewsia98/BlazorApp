@@ -1,0 +1,26 @@
+﻿<select @bind=selectedCulture @bind:after=SetCulture>
+    @foreach (var culture in LocalizationOptions.SupportedCultures)
+    {
+        <option value=@culture.Key selected=@(culture.Key == selectedCulture)>
+            @culture.Value
+        </option>
+    }
+</select>
+
+@code {
+    [Inject] NavigationManager NavigationManager { get; set; }
+    [Inject] BlazorApp.LocalizationOptions LocalizationOptions { get; set; }
+
+    private string selectedCulture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+
+    private void SetCulture()
+    {
+        var uri = new Uri(NavigationManager.Uri)
+            .GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+
+        var query = $"?culture={Uri.EscapeDataString(selectedCulture)}&" +
+            $"redirectUri={Uri.EscapeDataString(uri)}";
+
+        NavigationManager.NavigateTo("/Culture/SetCulture" + query, forceLoad: true);
+    }
+}

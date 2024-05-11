@@ -1,0 +1,25 @@
+﻿@page "/"
+
+<h1 style="text-align: center;">@Localizer["My Blazor App"]</h1>
+
+<div style="text-align: center; border: 1px solid; margin: 1em;">
+    <h2>@Localizer["Localization"]</h2>
+    <CultureSelector />
+    <HelloWorld />
+    <CurrentDateTime />
+</div>
+
+<div style="text-align: center; border: 1px solid; margin: 1em;">
+    <h2>State Management</h2>
+    <div style="display: flex; justify-content: space-evenly;">
+        <div>
+            <h3>Message 1</h3>
+            <Message />
+        </div>
+        <div>
+            <h3>Message 2</h3>
+            <Message />
+        </div>
+    </div>
+    <MessageForm />
+</div>
