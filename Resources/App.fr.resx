@@ -123,6 +123,9 @@
   <data name="It is currently {0}" xml:space="preserve">
     <value>Nous sommes actuellement le {0}</value>
   </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Localisation</value>
+  </data>
   <data name="My Blazor App" xml:space="preserve">
     <value>Mon application Blazor</value>
   </data>

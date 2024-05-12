@@ -24,9 +24,17 @@
     <MessageForm />
 </div>
 
-<div style="text-align: center; border: 1px solid; margin: 1em;">
+<div style="text-align: center; border: 1px solid; margin: 1em; position: relative;">
     <h2>Cascading Values</h2>
-    <MessageContext>
+    <button @onclick=@(() => messageContext.UpdateState())
+        style="position: absolute; top: 1em; right: 1em;">
+        StateHasChanged
+    </button>
+    <MessageContext @ref=messageContext>
         <Level1 />
     </MessageContext>
 </div>
+
+@code {
+    private MessageContext messageContext;
+}
