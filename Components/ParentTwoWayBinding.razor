@@ -1,0 +1,15 @@
+﻿<div style="border: 0.2em solid red; margin: 1em;">
+    @if (string.IsNullOrEmpty(message))
+    {
+        <p style="opacity: 50%;">No message set yet</p>
+    }
+    else
+    {
+        <p>@message</p>
+    }
+    <ChildTwoWayBinding @bind-Message=message />
+</div>
+
+@code {
+    private string message = "";
+}

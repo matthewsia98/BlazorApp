@@ -1,0 +1,39 @@
+﻿<div style="border: 0.2em solid green; margin: 1em;">
+    @if (Messages.Any())
+    {
+        foreach (var msg in Messages)
+        {
+            <p>@msg</p>
+        }
+    }
+    else
+    {
+        <p style="opacity: 50%;">No messages added yet</p>
+    }
+    <form @onsubmit=AddMessage style="width: fit-content; margin: 1em auto;">
+        <fieldset>
+            <legend align="center">Add Message</legend>
+            <div style="display: flex; flex-direction: column;">
+                <input type="text" @bind=newMessage />
+                <button type="submit" style="margin-top: 1em;">Add Message</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+@code {
+    [Parameter] public List<string> Messages { get; set; }
+    [Parameter] public EventCallback<string> OnNewMessageAdded { get; set; }
+
+    private string newMessage = "";
+
+    private void AddMessage()
+    {
+        if (!string.IsNullOrEmpty(newMessage))
+        {
+            Messages.Add(newMessage);
+            OnNewMessageAdded.InvokeAsync(newMessage);
+            newMessage = "";
+        }
+    }
+}

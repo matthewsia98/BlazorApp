@@ -1,0 +1,32 @@
+﻿<div style="border: 0.2em solid green; margin: 1em;">
+    @if (string.IsNullOrEmpty(Message))
+    {
+        <p style="opacity: 50%;">No message set yet</p>
+    }
+    else
+    {
+        <p>@Message</p>
+    }
+    <form @onsubmit=SetMessage style="width: fit-content; margin: 1em auto;">
+        <fieldset>
+            <legend align="center">Set Message</legend>
+            <div style="display: flex; flex-direction: column;">
+                <input type="text" @bind=newMessage/>
+                <button type="submit" style="margin-top: 1em;">Set Message</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+@code {
+    [Parameter] public string Message { get; set; }
+    [Parameter] public EventCallback<string> MessageChanged { get; set; }
+
+    private string newMessage = "";
+
+    private void SetMessage()
+    {
+        MessageChanged.InvokeAsync(newMessage);
+        newMessage = "";
+    }
+}
