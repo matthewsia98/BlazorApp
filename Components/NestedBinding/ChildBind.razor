@@ -1,0 +1,26 @@
+﻿<div style="border: 0.2em solid green; margin: 1em;">
+    <p>Child: @ChildMessage</p>
+    <form @onsubmit=SetMessageFromChild style="width: fit-content; margin: 1em auto;">
+        <fieldset>
+            <legend align="center">Set Message from Child</legend>
+            <div style="display: flex; flex-direction: column;">
+                <input type="text" @bind=childMessage />
+                <button type="submit" style="margin-top: 1em;">Set Message from Child</button>
+            </div>
+        </fieldset>
+    </form>
+    <GrandchildBind @bind-GrandchildMessage:get=ChildMessage @bind-GrandchildMessage:set=ChildMessageChanged />
+</div>
+
+@code {
+    [Parameter] public string ChildMessage { get; set; }
+    [Parameter] public EventCallback<string> ChildMessageChanged { get; set; }
+
+    private string childMessage;
+
+    private void SetMessageFromChild()
+    {
+        ChildMessageChanged.InvokeAsync(childMessage);
+        childMessage = "";
+    }
+}

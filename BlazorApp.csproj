@@ -6,12 +6,4 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Components\MessageForm.razor.css" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="Components\MessageForm.razor.css" />
-  </ItemGroup>
-
 </Project>
