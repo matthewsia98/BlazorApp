@@ -1,1 +1,1 @@
-![](https://github.com/github/docs/actions/workflows/dotnet.yml/badge.svg)
+![](https://github.com/matthewsia98/BlazorApp/actions/workflows/dotnet.yml/badge.svg)
